@@ -1,6 +1,9 @@
 Filename:   KJvS_CV.tex
+
 Author:     Kipp J van Schooten (kippvs@gmail.com)
+
 Version:    0.0.3
+
 Date:       2014-09-16
 
 Description:
