@@ -1,15 +1,14 @@
-Filename:   KJvS_CV.tex
+# LaTeX Code for kippvs' CV
 
-Author:     Kipp J van Schooten (kippvs@gmail.com)
+Filename:   KJvS_CV.tex  
+Author:     Kipp J van Schooten (kippvs@gmail.com)  
+Version:    0.0.3  
+Date:       2014-09-16  
 
-Version:    0.0.3
+## Description:  
+A copy of my CV and the LaTeX code needed to generate it
 
-Date:       2014-09-16
-
-Description:
-A copy of my CV and LaTeX code needed to generate it
-
-Notes:
+## Notes:  
 * Cobbled together from open access documents authored by:
   - Paul D. Gessler (https://github.com/pdgessler)
   - Theodore P. Pavlic (http://www.tedpavlic.com)
