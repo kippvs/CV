@@ -1,0 +1,564 @@
+%!TEX program = lualatex
+% ================================================================================================
+%         							Kipp van Schooten - LaTeX CV
+%
+%  Filename:       KJvS_AcademicCV_v0.6.tex
+%  Author:         Kipp J van Schooten (kippvs@gmail.com)
+%  Version:        0.6
+%  Date:           2018-02-16
+%
+%  Notes:		   Inspiration taken from documents authored by:
+%				      o Paul D. Gessler (https://github.com/pdgessler)
+%					  o Theodore P. Pavlic (http://www.tedpavlic.com)
+%
+% ================================================================================================
+\documentclass[11pt,letterpaper]{article}
+
+\def\myauthor{Kipp J. van Schooten}
+\def\mytitle{Kipp J. van Schooten, PhD - CV}
+\def\myemail{kipp.j.van.schooten@dartmouth.edu}
+\def\myweb{kippvs}
+\def\myphone{1-555-555-5555}
+\def\myfax{1-555-555-5555}
+\def\mykeywords{kipp van schooten, 
+				resume, 
+				curriculum, 
+				vitae, 
+				curriculum vitae, 
+				cv, 
+				kippvs, 
+				kipp, 
+				van schooten, 
+				ESR, 
+				EPR, 
+				EDMR, 
+				ODMR, 
+				magnetic resonance}
+
+\usepackage{url}
+\usepackage{xcolor}
+	\definecolor{darkred}{rgb}{102,0,0} 
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[shortlabels]{enumitem}
+	\setlist{nolistsep,leftmargin=0.15in}
+\usepackage[log-declarations=false]{xparse}
+% \usepackage{xparse}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[margin=1.125in,
+			right=1in,
+			left=2in]{geometry}
+\usepackage[strict]{changepage}
+\usepackage[ocgcolorlinks,
+			urlcolor={[rgb]{0,0,0.54}},
+			unicode,
+			plainpages=false,
+			pdfpagelabels,
+			pdftitle={\mytitle},
+			pdfauthor={\myauthor},
+			pdfkeywords={\mykeywords}]{hyperref}
+\usepackage{doi}
+% To change the text before the DOI, adjust this command
+%\renewcommand\doitext{doi:}
+
+% ================================================================================================
+\newcommand{\ML}{\textsc{Matlab}}
+\newcommand{\CPP}{C/C\ensuremath{+}\ensuremath{+}}
+
+\newcommand{\mhead}[1]{\leavevmode\marginpar{\sffamily\small #1}}
+\newcommand{\rdate}[1]{{\addfontfeature{Numbers=OldStyle} \hfill #1}}
+\renewcommand{\date}[1]{{\addfontfeature{Numbers=OldStyle} #1}}
+\renewcommand{\labelitemi}{-} 
+
+\setmainfont[Ligatures={TeX,Common},
+			 BoldFont={AGaramondPro-Bold}]{Adobe Garamond Pro}
+
+\setsansfont[Ligatures={TeX,Common},
+			 Letters=SmallCaps,
+			 Color=darkred]{Adobe Garamond Pro}
+
+\setmonofont{FontAwesome}
+
+% Get rid of indenting throughout entire document
+\setlength\parindent{0pt}
+
+% Setup aligned list
+\newenvironment{itemize*}
+	{\begin{itemize}
+	  	\setlength{\itemsep}{0pt}}
+	{\end{itemize}}
+
+% ================================================================================================
+% Simpler bibsections for CV sections
+%
+% * For lists of references with hanging indents and no numbers:
+%
+%   \begin{bibsection}
+%       \item ...
+%   \end{bibsection}
+%
+% * For numbered lists of references (with hanging indents):
+%
+%   \begin{bibenum}
+%       \item ...
+%   \end{bibenum}
+%
+%   Note that bibenum numbers continuously throughout. To reset the
+%   counter, use
+%
+%   \restartlist{bibenum}
+%
+%   at the place where you want the numbering to reset.
+% ================================================================================================
+\makeatletter
+
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+
+\newlength{\bibsep}
+ 	{\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+
+\newlist{bibsection}{itemize}{3}
+
+\setlist[bibsection]{label=, 
+					 leftmargin=\bibhang, 
+					 itemindent=-\bibhang, 
+					 %itemsep=\bibsep, 
+					 itemsep=5pt, 
+					 parsep=\z@, 
+					 partopsep=0pt, 
+					 topsep=0pt}
+
+\newlist{bibenum}{enumerate}{3}
+
+\setlist[bibenum]{label=[\arabic*], 
+				  resume, 
+				  leftmargin={\bibhang}, 
+				  itemindent=\bibhang, 
+				  %itemsep=\bibsep, 
+				  itemsep=5pt, 
+				  parsep=\z@, 
+				  partopsep=0pt, 
+				  topsep=0pt}
+
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+
+\makeatother
+
+% ================================================================================================
+%				MAKE DOCUMENT HEADER
+% ================================================================================================
+\begin{document}\flushbottom
+\pagestyle{fancy} \setlength\headwidth{6.5in}
+\rhead{\textsc{kipp j.~van schooten—curriculum vitæ—\thepage{} of \pageref*{LastPage}}} \cfoot{}
+\thispagestyle{empty}
+\begin{adjustwidth}{-1in}{}
+
+{\Huge{\textsc{%
+    {\addfontfeature{Style=TitlingCaps}K}\kern-1.5ptipp 
+    {\addfontfeature{Style=TitlingCaps}J}\kern-2pt. van 
+    {\addfontfeature{Style=TitlingCaps}S}chooten, 
+	{\addfontfeature{Style=TitlingCaps}P}h.{\addfontfeature{Style=TitlingCaps}D}.}
+}}
+
+\vspace{0.25em} % buffer layer
+
+{\footnotesize{\textsc{%
+	\newline Dartmouth College, Department of Physics \& Astronomy, 6127 Wilder Laboratory, Hanover, NH 03755-3528}
+	\newline [\textsc{cell}: \href{tel:\myphone}{\myphone}]~~~~
+	[\textsc{fax}: \href{tel:\myfax}{\myfax}]~~~~
+	[\href{mailto:\myemail}{\myemail}]~~~~
+	% [\href{http://www.physics.utah.edu/~kippvs/}{www.physics.utah.edu/$\sim$kippvs}]~~~
+	% \href{https://www.github.com/\myweb}{\texttt{}}~~~
+	% \href{https://www.linkedin.com/in/\myweb}{\texttt{}}
+}}
+
+\par
+\hrulefill
+\end{adjustwidth}  
+\reversemarginpar 
+\setlength\marginparwidth{0.85in}
+\medskip
+
+% ================================================================================================
+% 			RESEARCH INTERESTS
+% ================================================================================================
+\mhead{Research \newline Interests}%
+Investigating fundamental spin-spin interactions as a probe of the nano- and mesoscale physics governing macroscopic observables in material systems ranging from carbon-based materials to semiconductor dopants and defects. By coherently manipulating the spin identity of optically and electrically generated excited states via electron spin resonance (ESR), insight into the chemical nature, environmental interactions, and possible technological usefulness of such spin states can be gained.
+\\[5pt]
+Also of interest is the technological development of novel and unique experimental probes of spin dependent phenomena. Combining magnetic resonance techniques with modern advancements in the realms of electronics, optical spectroscopy, and radio frequency control opens new windows on accessing and controlling spin systems.
+\\[5pt]
+Current projects focus on expanding the parameter space over which electron spin states may be electrically addressed; in particular, from large magnetic fields ($\sim$3.3 Tesla, Larmor frequency of $\sim$94 GHz) down to very weak magnetic fields (1 mT with $\sim$30 MHz Larmor frequency). At each extreme of magnetic field, the spin-spin coupling mechanisms experienced by charge carriers at the microscopic level can be quite different and are currently poorly understood. Additional projects revolve around taking advantage of electron-nuclear hyperfine couplings in order to enhance nuclear polarization via dynamic nuclear polarization (DNP). This allows enhanced detection of nuclear magnetic resonance (NMR) for states ranging over phosphorus donor qubits in silicon, to chemical groups at 2D surfaces, and material-confirmation of topological insulator states.
+\vspace{0.4\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			RESEARCH EXPERIENCE
+% ================================================================================================
+\mhead{Research \newline Experience}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibsection}
+
+	\item \textbf{Postdoctoral Researcher}, Dartmouth College, Hanover, New Hampshire \rdate{2015–2017}
+	\vspace{-0.5em} % horizontally align header and list
+	
+	\item \href{http://www.dartmouth.edu/~cramanathan/}{\emph{Ramanathan Lab}}
+		\begin{itemize*}
+			\item Rather than popular optical methods, using electrically detected magnetic resonance (EDMR) to explore defect states in SiC as potential qubit systems with electronic readout.
+			\item Exploring the cross-over of underlying mechanisms for spin-dependent dissociation/recombination in donor-defect spin-pairs within phosphorus-doped silicon (Si:P) between extremes in magnetic field.
+			\item Investigating the dependence of spin-pair formation and enhanced DNP through resonant exciton formation in Si:P and SiC using narrow linewidth, tunable lasers.
+			\item Enhancing DNP for highly sensitive chemical identification at 2D surfaces.
+			\item Using DNP as an experimental confirmation of topological insulating states in material candidates.
+			\item Testing graphene for the potential of exploiting electron-nuclear couplings with DNP.
+			\item Advisor: Prof. Chandrasekhar Ramanathan
+		\end{itemize*}
+
+	\item \textbf{Postdoctoral Researcher}, University of Utah, Salt Lake City, Utah \rdate{2013–2015}
+	\vspace{-0.5em} % horizontally align header and list
+	
+	\item \href{http://www.mrsec.utah.edu/}{\emph{Materials Research, Science, and Engineering Center (MRSEC)}}
+		\begin{itemize*}
+			\item Develop powerful excitation and detection methods for the Inverse Spin Hall Effect.
+			\item Explore spin-current injection schemes and spin- to charge-current conversion mechanisms in organic semiconductors.
+			\item Design and implement a $\sim$\$1.4M, 12.5 Tesla, 330 GHz electro-optical spin resonance facility. [\href{http://www.physics.utah.edu/~kippvs/papers/UtahMRSEC_HighField_NoQuotes.pdf}{PDF}] (\textit{project canceled due to budget cuts})
+			\item Advisors: Profs. Christoph Boehme, Z. Valy Vardeny, Brian Saam
+		\end{itemize*}
+
+	\item \href{http://www.physics.utah.edu/~boehmelab/}{\emph{The Spin Electronics Group}}
+		\begin{itemize*}
+			\item Measuring and numerically modeling spin-spin interaction energies and pair separations within organic semiconductors via electrical detection of Rabi oscillations under resonance detuning.
+			\item Correlating morphology and magnetic order/disorder in organic semiconductors.
+			\item Develop and refine the measurement and excitation techniques required for observation of exceedingly small electrical and optical signals.
+			\item Advisor: Prof. Christoph Boehme
+		\end{itemize*}
+	
+	\item \href{http://www.physik.uni-regensburg.de/forschung/lupton/lupton/}{\emph{The Organic Semiconductors and Optical Nanostructures Group}}
+		\begin{itemize*}
+			\item Spent 4 weeks at the University of Regensburg, Regensburg, Germany to retrofit a wide-field, optical microscopy setup with single-molecule spin-resonance capabilities.
+			\item This work was sponsored by Prof. John M. Lupton, Chair of the Institute of Experimental and Applied Physics at the University of Regensburg.
+		\end{itemize*}
+					
+\end{bibsection}
+\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			EDUCATION
+% ================================================================================================
+\mhead{Education}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibsection}
+
+	\item \href{http://www.utah.edu/}{\textbf{University of Utah}}, Salt Lake City, Utah \rdate{2006–2012}\newline \emph{Ph.D. in Condensed Matter Physics, \href{http://www.physics.utah.edu/}{Dept. of Physics \& Astronomy}}
+		\begin{itemize*}
+			\item Thesis: \textit{Optically Active Charge Traps and Chemical Defects in Semiconducting Nanocrystals Probed by Pulsed Optically Detected Magnetic Resonance} [\href{http://www.physics.utah.edu/~kippvs/papers/Kipp_van_Schooten_Thesis.pdf}{PDF}]
+			\item Ph.D. dissertation published in 2013 Springer Theses Series, ISBN$\colon$\href{http://www.springer.com/gp/book/9783319005898}{9783319005898}
+			\item Advisors: Prof.~John M.~Lupton \& Prof. Christoph Boehme
+		\end{itemize*}
+
+	\item \href{http://www.spsu.edu/}{\textbf{Southern Polytechnic State University}}, Marietta, Georgia \rdate{2000–2005}\newline \emph{B.Sc in Physics, \href{http://www.spsu.edu/physics/}{Dept. of Physics}}
+		\begin{itemize*}
+			\item Minor (non-traditional) in Electrical Engineering Technology
+			\item Senior Project: \textit{Development of a Wireless Geophone System for Subsurface Depth Seismology}
+			\item Advisors: Dr. James B. Whitenton, Dr. Russel S. Patrick, Dr. Michael G. Thackston
+		\end{itemize*}
+					
+\end{bibsection}
+\vspace{0.95\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			TECHNICAL SKILLS
+% ================================================================================================
+\mhead{Technical \newline Proficiencies}
+\vspace{-1.3em} % horizontally align header and list
+\begin{bibsection}
+
+	\item \emph{Techniques}%
+		\begin{itemize*}
+			\item Electron Spin Resonance (electrical, optical, and absorption detected ESR, both at high and low fields)
+			\item Optical techniques (optics bench design, pulsed electrical/optical excitation for time-gated electroluminescence/photoluminescence spectroscopy)
+			\item Organic semiconductor device fabrication, glovebox procedures, and thermal evaporation of metals
+			\item Chemical handling, wetlab, and basic cleanroom procedures
+			\item Electronic methods of small-signal detection, signal conditioning, and noise analysis
+			\item Analog/digital electronics, microcontroller programming/interfacing, RF electronics, PCB design, and associated test equipment
+		\end{itemize*}
+				
+	\item \emph{Software}
+		\begin{itemize*}
+			\item Building quantum mechanical numerical simulations
+			\item Python, MATLAB, LabVIEW, OriginLab, Xepr/PulseSPEL, \LaTeX{}
+			\item Working experience with \CPP{}, Assembly, AutoCAD/Inventor
+		\end{itemize*}
+					
+\end{bibsection}
+\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			PUBLICATIONS
+% ================================================================================================
+\mhead{Refereed\newline Journal\newline Publications}
+\vspace{-1.1em} % horizontally align header and list
+(*) \textit{denotes shared authorship.}
+\begin{bibenum}
+	\bigskip
+
+	\item Zhu, L., \textbf{van Schooten, K. J.}, Guy, M. L., Ramanathan, C. Optical dependence of electrically detected magnetic resonance in lightly doped Si:P devices. \textit{Phys. Rev. Appl.} \textbf{7}, 064028 (2017). \doi{10.1103/PhysRevApplied.7.064028}
+
+	\item Guy, M. L., \textbf{van Schooten, K. J.}, Zhu, L., Ramanathan, C. Chemisorption of water on the surface of silicon microparticles measured by dynamic nuclear polarization enhanced NMR \textit{J. Phys. Chem. C} \textbf{121}, 2748-2754 (2017). \doi{10.1021/acs.jpcc.6b11065}
+
+	\item Sun, D., Kareis, C. M., \textbf{van Schooten, K. J.}, Jiang, W., Kavand, M., Davidson, R. A., Shum, W. W., Zhang, C., Tiwari, A., Boehme, C., Liu, F., Stephens, P. W., Miller, J. S., Vardeny, Z. V. Spintronic detection of interfacial magnetic switching in a paramagnetic thin film of tris(8-hydroxyquinoline)iron(III). \textit{Phys. Rev. B} \textbf{95}, 054423 (2017). \doi{10.1103/PhysRevB.95.054423}
+
+	\item Sun, D., Zhang, C., Kavand, M., \textbf{van Schooten, K. J.}, Malissa, H., Groesbeck, M., McLaughlin, R., Boehme, C., Vardeny, Z. V. Spintronics of organometal trihalide perovskites. (2016) [\textit{under review}] arXiv:\href{http://arxiv.org/abs/1608.00993}{1608.00993}
+
+	\item Miller, R., \textbf{van Schooten, K. J.}, Malissa, H., Joshi, G., Jamali, S., Lupton, J. M., Boehme, C., Morphology effects on spin-dependent transport and recombination in polyfluorene thin films. \textit{Phys. Rev. B} \textbf{94}, 214202 (2016). \doi{10.1103/PhysRevB.94.214202}
+
+	\item Kavand, M., Baird, M., \textbf{van Schooten, K. J.}, Malissa, H., Lupton, J. M., Boehme, C., Discrimination between spin-dependent charge transport and spin dependent recombination in $\pi$-conjugated polymers by correlated current and electroluminescence-detected magnetic resonance. \textit{Phys. Rev. B} \textbf{94}, 075209 (2016). \doi{10.1103/PhysRevB.94.075209}
+
+	\item Hao, J., Davidson, R. A., Kavand, M., \textbf{van Schooten, K. J.}, Boehme, C., Miller, J. S., Hexacyanobutadienide-based frustrated and weak ferrimagnets: M(HCBD)\textsubscript{2}\textbullet zCH\textsubscript{2}Cl\textsubscript{2} (M = V, Fe). \textit{Inorg. Chem.} \textbf{55}, 9393--9399 (2016). \doi{10.1021/acs.inorgchem.6b01565}
+
+	\item Hao, J., Rheingold, A. L., Kavand, M., \textbf{van Schooten, K. J.}, Boehme, C., Capdevila-Cortada, M., Novoa, J. J., W\"o\ss{}, E., Kn\"or, G., Miller, J. S., Characterization of tetracyanopyridine (TCNPy)-based magnets: V[TCNPy]\textsubscript{2}\textbullet z(CH\textsubscript{2}Cl\textsubscript{2}) (T\textsubscript{c}=111 K) and V[TCNPy]\textsubscript{3}\textbullet z(CH\textsubscript{2}Cl\textsubscript{2}) (T\textsubscript{c}=90 K). \textit{Chem. Eur. J.} \textbf{22}, 14273--14278 (2016). \doi{10.1002/chem.201602385}
+
+	\item Hao, J., Rheingold, A. L., Kavand, M., \textbf{van Schooten, K. J.}, Boehme, C., Capdevila-Cortada, M., Novoa, J. J., W\"o\ss{}, E., Kn\"or, G., Miller, J. S., The tetracyanopyridinide dimer dianion, $\sigma$-[TCNPy]\textsubscript{2}\textsuperscript{2-}. \textit{Chem. Eur. J.} \textbf{22}, 12312--12315 (2016). \doi{10.1002/chem.201603071}
+
+	\item *Sun, D., \textbf{*van Schooten, K. J.}, Kavand, M., Malissa, H., Zhang, C., Groesbeck, M., Boehme, C., Vardeny, Z. V., Inverse spin Hall effect from pulsed spin current in organic semiconductors with tunable spin–orbit coupling. \textit{Nat. Mater.} \textbf{15} 863--869 (2016). \doi{10.1038/nmat4618} 
+
+	\item \textbf{van Schooten, K. J.}, Baird, D. L., Limes, M. E., Lupton, J. M., Boehme, C., Probing long-range carrier-pair spin-spin interactions in a conjugated polymer by detuning of electrically detected spin beatings. \textit{Nat. Commun.} \textbf{6}, 6688 (2015). \doi{10.1038/ncomms7688} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2015_NatComm.pdf}{PDF}]
+
+	\item Malissa, H., Kavand, M., Waters, D. P., \textbf{van Schooten, K. J.}, Burn, P. L., Vardeny, Z. V., Saam, B., Lupton, J. M., Boehme, C., Room-temperature coupling between electrical current and nuclear spins in OLEDs. \textit{Science} \textbf{345}, 1487--1490 (2014). \doi{10.1126/science.1255624} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2014_Science.pdf}{PDF}]
+
+	\item \textbf{van Schooten, K. J.}, Boehme, C. \& Lupton, J. M. Coherent magnetic resonance of nanocrystal quantum-dot luminescence as a window to blinking mechanisms. \textit{ChemPhysChem} \textbf{15}, 1737--46 (2014). \doi{10.1002/cphc.201400081} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2014_ChemPhysChem.pdf}{PDF}]
+
+	\item Her, J. H., Stephens, P. W., Davidson, R. A., Min, K. S., Bagnato, J. D., \textbf{van Schooten, K. J.}, Boehme, C. \& Miller, J. S.	Weak ferromagnetic ordering of the Li\textsuperscript{+}[TCNE]\textsuperscript{\textbullet -} (TCNE = tetracyanoethylene) organic magnet with an interpenetrating diamondoid structure. \textit{J. Am. Chem. Soc.} \textbf{135}, 18060--3 (2013). \doi{10.1021/ja410818e} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2013_JACS.pdf}{PDF}]
+	
+	\item \textbf{van Schooten, K. J.}, Huang, J., Talapin, D. V, Boehme, C. \& Lupton, J. M. Spin-dependent electronic processes and long-lived spin coherence of deep-level trap sites in CdS nanocrystals. \textit{Phys. Rev. B} \textbf{87}, 125412 (2013). \doi{10.1103/PhysRevB.87.125412} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2013_PRB.pdf}{PDF}]
+	
+	\item \textbf{van Schooten, K. J.}, Huang, J., Baker, W. J., Talapin, D. V, Boehme, C. \& Lupton, J. M. Spin-dependent exciton quenching and spin coherence in CdSe/CdS nanocrystals. \textit{Nano Lett.} \textbf{13}, 65--71 (2013). \doi{10.1021/nl303459a} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2013_NanoLett.pdf}{PDF}]
+
+	\item Baker, W. J., Ambal, K., Waters, D. P., Baarda, R., Morishita, H., \textbf{van Schooten, K. J.}, McCamey, D. R., Lupton, J. M. \& Boehme, C. Robust absolute magnetometry with organic thin-film devices. \textit{Nat. Commun.} \textbf{3}, 898 (2012). \doi{10.1038/ncomms1895} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2012_NatComm.pdf}{PDF}]
+
+	\item Baker, W. J., McCamey, D. R., \textbf{van Schooten, K. J.}, Lupton, J. M. \& Boehme, C. Differentiation between polaron-pair and triplet-exciton polaron spin-dependent mechanisms in organic light-emitting diodes by coherent spin beating. \textit{Phys. Rev. B} \textbf{84}, 165205 (2011). \doi{10.1103/PhysRevB.84.165205} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2011_PRB.pdf}{PDF}]
+	
+	\item Chaudhuri, D., Wettach, H., \textbf{van Schooten, K. J.}, Liu, S., Sigmund, E., H\"{o}ger, S. \& Lupton, J. M. Tuning the singlet-triplet gap in metal-free phosphorescent $\pi$--conjugated polymers. \textit{Angew. Chem.} \textbf{49}, 7714--17 (2010). \doi{10.1002/anie.201003291} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2010_Angew.pdf}{PDF}]
+	
+	\item McCamey, D. R., \textbf{van Schooten, K. J.}, Baker, W. J., Lee, S.-Y., Paik, S.-Y., Lupton, J. M. \& Boehme, C. Hyperfine-field-mediated spin beating in electrostatically bound charge carrier pairs. \textit{Phys. Rev. Lett.} \textbf{104}, 017601 (2010). \doi{10.1103/PhysRevLett.104.017601} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2010_PRL.pdf}{PDF}]
+	
+	\item Boehme, C., McCamey, D. R., \textbf{van Schooten, K. J.}, Baker, W. J., Lee, S.-Y., Paik, S.-Y. \& Lupton, J. M. Pulsed electrically detected magnetic resonance in organic semiconductors. \textit{Phys. Status Solidi B} \textbf{246}, 2750--2755 (2009). \doi{10.1002/pssb.200982357} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2009_PSSb.pdf}{PDF}]
+	
+	\item Walter, M. J., Borys, N. J., \textbf{van Schooten, K. J.} \& Lupton, J. M. Light-harvesting action spectroscopy of single conjugated polymer nanowires. \textit{Nano Lett.} \textbf{8}, 3330--3335 (2008). \doi{10.1021/nl801757p} 
+	% [\href{http://www.physics.utah.edu/~kippvs/papers/2008_NanoLett.pdf}{PDF}]
+
+\end{bibenum}
+\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			CONFERENCE TALKS
+% ================================================================================================
+\mhead{Conference\newline Talks}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibenum}
+
+	\item \textbf{van Schooten, K. J.}, Baird, D. L., Limes, M., Lupton, J. M., \& Boehme, C. Probing Carrier-Pair Spin-Spin Interactions in a Conjugated Polymer by Detuning of Electrically Detected Beating of Spin-Rabi Oscillations. \textit{New England Section Meeting of the American Physical Society}. Hanover, New Hampshire, USA, November 06--07, 2015.
+
+	\item \textbf{van Schooten, K. J.}, Baird, D. L., Limes, M., Lupton, J. M., \& Boehme, C. Probing Carrier-Pair Spin-Spin Interactions in a Conjugated Polymer by Detuning of Electrically Detected Beating of Spin-Rabi Oscillations. \textit{Rocky Mountain Conference on Magnetic Resonance} (RMCAC 2015). Snowbird, Utah, USA, July 26--30, 2015.
+
+	\item \textbf{van Schooten, K. J.}, Sun, D., Vardeny, Z. V., \& Boehme, C. Artifact free Inverse Spin Hall Effect Measurements in Organic Semiconductor Devices by Pulsed Ferromagnetic-Resonant Spin-Pumping. \textit{Rocky Mountain Conference on Magnetic Resonance} (RMCAC 2014). Copper Mountain, Colorado, USA, July 13--17, 2014.
+
+	\item \textbf{van Schooten, K. J.}, Huang, J., Talapin, D. V., Boehme, C. \& Lupton, J. M. Spin-Dependent Light-Harvesting in Nanotetrapods by Controlling Electronic Trap States with Optically Detected Magnetic Resonance. \textit{Nanoscience with Nanocrystals} (NaNaX6). Bad Hofgastein, Austria, May 18--23, 2014.
+	
+	\item \textbf{van Schooten, K. J.}, Huang, J., Talapin, D. V., Boehme, C. \& Lupton, J. M. Spin-Dependent Light-Harvesting in Nanotetrapods by Controlling Electronic Trap States with Optically Detected Magnetic Resonance. \textit{International Conference on Quantum Dots} (QD2014). Pisa, Italy, May 11--16, 2014.
+	
+	\item \textbf{van Schooten, K. J.}, Huang, J., Talapin, D. V., Boehme, C. \& Lupton, J. M. Spin-Dependent LightHarvesting in Colloidal Nanocrystals by Controlling Electronic Trap States with Optically Detected Magnetic Resonance. \textit{American Physical Society March Meeting}. Baltimore, Maryland, USA, March 17--22, 2013.
+	
+	\item \textbf{van Schooten, K. J.}, Huang, J., Baker, W. J., Talapin, D. V., Boehme, C. \& Lupton, J. M. Probing Electronic Trap States in Colloidal Nanocrystals with Optically Detected Magnetic Resonance. \textit{Rocky Mountain Conference on Analytical Chemistry} (RMCAC 2012). Copper Mountain, Colorado, USA, June 16--21, 2012.
+	
+	\item \textbf{van Schooten, K. J.}, Baker, W. J., Huang, J., Talapin, D. V., Boehme, C. \& Lupton, J. M. Observation of Long Spin Coherence Times in CdSe/CdS Colloidal Nanostructures. \textit{American Physical Society March Meeting}. Dallas, TX, USA, March 22--25, 2011.
+
+\end{bibenum}
+\vspace{\baselineskip} % add a bit of space after list
+%\vspace{\baselineskip} % add a bit of space after list <---------- ADDED TO SHIFT NEXT HEADER TO FOLLOWING PAGE. DELETE WHEN NOT NEEDED.
+%\vspace{\baselineskip} % add a bit of space after list <---------- ADDED TO SHIFT NEXT HEADER TO FOLLOWING PAGE. DELETE WHEN NOT NEEDED.
+
+% ================================================================================================
+% 			POSTERS
+% ================================================================================================
+\mhead{Conference\newline Posters}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibenum}
+
+	\item \textbf{van Schooten, K. J.}, Guy, M. L., Zhu, L., Ramanathan, \& C. Design Considerations for Frequency-Swept Electrically-Detected Magnetic Resonance at High Fields. \textit{Gordon Research Conference: Defects in Semiconductors}. New London, New Hampshire, USA, August 14--19, 2016.
+
+	\item \textbf{van Schooten, K. J.}, Baker, W. J., Huang, J., Talapin, D. V., Boehme, C. \& Lupton, J. M. Long Spin Coherence Lifetimes of Optically Generated Excitations in Colloidal CdS Nanorods. \textit{Optical Probes of Conjugated Polymers and Organic Nanostructures} (OP2011) \& \textit{Excited State Processes on Electronic and Bio Nanomaterials} (ESP2011). Santa Fe, NM, USA, June 19--24, 2011
+	
+	\item \textbf{van Schooten, K. J.}, Huang, J., Baker, W. J., Talapin, D. V., Boehme, C. \& Lupton, J. M. Long Spin Coherence Lifetimes of Optically Generated Excitations in Colloidal CdS Nanorods. \textit{Fundamental Optical Processes in Semiconductors} (FOPS2011). Lake Junaluska, NC, USA, August 1--5, 2011.
+	
+	\item \textbf{van Schooten, K. J.}, Liu, S., Walter, M. J., McCamey, D. R., Scherf, U., Boehme, C., \& Lupton, J. M. Time-Resolved Measurements of Spin-Dependent Carrier Recombination in Charge Transfer States of pi-Conjugated Polymers. \textit{American Chemical Society National Meeting}. Salt Lake City, UT, USA, March 22--26, 2009.
+
+\end{bibenum}
+\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			COLLOQUIA & SEMINARS
+% ================================================================================================
+\mhead{Colloquia \&\newline Seminars}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibenum}
+
+	\item Making Use of Trapped-Carrier Spins in Colloidal Nanocrystals, \textit{Institute of Experimental and Applied Physics Colloqium}, University of Regensburg, Regensburg, Germany, June, 23, 2014.
+	
+	\item Increasing Accessibility to the Inverse Spin Hall Effect by Pulsed Ferromagnetic-Resonant Spin-Pumping, \textit{Materials Research, Science, and Engineering Center} (MRSEC) \textit{Seminar}, University of Utah, Salt Lake City, UT, USA, April 8, 2014.
+
+\end{bibenum}
+\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			BOOKS
+% ================================================================================================
+\mhead{Books}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibenum}
+
+	\item \textbf{K. J. van Schooten}, \textit{Optically Active Charge Traps and Chemical Defects in Semiconducting Nanocrystals Probed by Pulsed Optically Detected Magnetic Resonance}, Springer, Cham, Switzerland, 2013. ISBN$\colon$9783319005898
+
+\end{bibenum}
+\vspace{\baselineskip} % add a bit of space after list
+
+%% ================================================================================================
+%% 			IN PREPARATION
+%% ================================================================================================
+%\mhead{Papers in\newline Preparation}
+%\vspace{-1.1em} % horizontally align header and list
+%\begin{bibenum}
+%
+	%\item \textbf{van Schooten, K. J.}, Sun, D., Malissa, H., Kavand, M., Zhang, C., Boehme, C., Vardeny, Z. V. Inverse Spin Hall Effect from Pulsed Spin Current in Organic Semiconductors with Tunable Spin-Orbit Coupling [\textit{under review at Nature Materials}]
+	%
+	%\item Sun, D., Kareis, C. M., \textbf{van Schooten, K. J.}, Jiang, W., Siegel, G., Shum, W. W., Tiwari, A., Boehme, C., Liu, F., Miller, J. S., Vardeny, Z. V. Spintronics Detection of Interfacial Magnetic Switching in a Paramagnetic Tris(8-hydroxyquinoline)iron(III) Nanosized Thin Film [\textit{submitted to Nature Nanotechnology}]
+	%
+	%\item Kavand, M., Baird, D. L., \textbf{van Schooten, K. J.}, Malissa, H., Waters, D. P., Lupton, J. M., and Boehme, C., Simultaneous Electrical and Optical Detection of Magnetic Resonance in Organic Light Emitting Diodes [\textit{in preparation; submission by July, 2015}]
+	%
+	%\item  Miller III, R., \textbf{van Schooten, K. J.}, Malissa, H., Waters, D. P., Lupton, J. M., and Boehme, C., The Influence of Polymer Morphological Order on Polaron-Pair Coherence in Organic Light Emitting Diodes [\textit{in preparation; submission by July, 2015}]
+	%
+%\end{bibenum}
+%\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			TEACHING EXPERIENCE
+% ================================================================================================
+\mhead{Teaching \newline Experience}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibsection}
+
+	\item \textbf{Dartmouth College}, Hanover, New Hampshire \rdate{2017}\newline
+		\emph{Lecturer, Dept. of Physics \& Astronomy}
+		\begin{itemize*}
+			\item Course: Introduction to Optics
+		\end{itemize*}
+
+	\item \textbf{Dartmouth College}, Hanover, New Hampshire \rdate{2017}\newline
+		\emph{Lecturer, Dept. of Physics \& Astronomy}
+		\begin{itemize*}
+			\item Course: Methods of Experimental Physics
+		\end{itemize*}
+
+	\item \textbf{University of Utah}, Salt Lake City, Utah \rdate{2006–2009}\newline
+		\emph{Graduate Teaching Assistant, Dept. of Physics \& Astronomy}
+		\begin{itemize*}
+			\item Courses:  Modern Physics (grading, office hours, class 1 day/week), Electronics I (grading, office hours, practical lab), Solid State II (grading, office hours)
+			\item \textit{Outstanding Teaching Assistant of the Year} award winner each year of TA duties
+		\end{itemize*}
+
+	\item \textbf{Southern Polytechnic State University}, Marietta, Georgia \rdate{2003–2005}\newline
+		\emph{University Staff Tutor, Campus-wide}
+		\begin{itemize*}
+			\item Courses: Physics (all levels), Calculus (\textsc{I}-\textsc{III}), Pre-Calculus
+			\item Hired as the only staff Physics tutor for the University, and one of two Calculus tutors
+		\end{itemize*}
+				
+\end{bibsection}
+\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			ACADEMIC SERVICE
+% ================================================================================================
+\mhead{Academic \newline Service}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibsection}
+
+	\item \textbf{Graduate Student Advisory Council, Chair}\rdate{2011–2012}\newline
+	Dept. of Physics \& Astronomy, University of Utah, Salt Lake City, Utah
+	
+	\item \textbf{Graduate Student Advisory Council, Vice-Chair}\rdate{2010–2011}\newline
+	Dept. of Physics \& Astronomy, University of Utah, Salt Lake City, Utah
+
+	\item \textbf{Academic Misconduct Committee, Graduate Representative}\rdate{2008–2010}\newline
+	College of Science, University of Utah, Salt Lake City, Utah
+	
+	\item \textbf{Academic Appeals Committee, Graduate Representative}\rdate{2008–2010}\newline
+	College of Science, University of Utah, Salt Lake City, Utah
+	
+	\item \textbf{IEEE Student Organization, Activities Director}\rdate{2002–2003}\newline
+	Electrical and Computer Engineering Technology, Southern Polytechnic State University, Marietta, Georgia
+	
+\end{bibsection}
+\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			HONORS AND AWARDS
+% ================================================================================================
+\mhead{Honors \& \newline Awards}
+\vspace{-1.1em} % horizontally align header and list
+\begin{bibsection}
+
+	\item \textbf{Ph.D. dissertation published in Springer Theses Series}\rdate{\textsc{spring} 2013}\newline \textit{Optically Active Charge Traps and Chemical Defects in Semiconducting Nanocrystals Probed by Pulsed Optically Detected Magnetic Resonance}, ISBN$\colon$9783319005898
+	
+	\item \textbf{2nd Place Best Graduate Student Oral Presentation}\rdate{\textsc{august} 4, 2012}\newline \textit{Probing Electronic Trap States in Colloidal Nanocrystals with Optically Detected Magnetic Resonance}. Student Research Symposium, Dept. of Physics \& Astronomy, University of Utah
+	
+	\item \textbf{1st Place Best Graduate Student Oral Presentation}\rdate{\textsc{august} 13, 2011}\newline \textit{Long Spin Coherence Lifetimes of Optically Generated Excitations in Colloidal CdS Nanorods}. Student Research Symposium, Dept. of Physics \& Astronomy, University of Utah
+	
+	\item \textbf{Outstanding Teaching Assistant}\rdate{2008–2009}\newline Course: Solid State Physics II (PHYS 5520). Taught by: Prof. John Lupton. Dept. of Physics \& Astronomy, University of Utah
+
+	
+	\item \textbf{Outstanding Teaching Assistant}\rdate{2007–2008}\newline Course: Intro to Quantum and Relativity (PHYS 3740). Taught by: Prof. John Lupton. Dept. of Physics \& Astronomy, University of Utah
+
+	
+	\item \textbf{Outstanding Teaching Assistant}\rdate{2006–2007}\newline Course: Intro to Quantum and Relativity (PHYS 3740). Taught by: Prof. John Lupton. Dept. of Physics \& Astronomy, University of Utah
+
+	
+	\item \textbf{Outstanding Teaching Assistant}\rdate{2005–2006}\newline Course: Intro to Quantum and Relativity (PHYS 3740). Taught by: Prof. David Ailion. Dept. of Physics \& Astronomy, University of Utah
+
+\end{bibsection}
+\vspace{\baselineskip} % add a bit of space after list
+
+% ================================================================================================
+% 			PROFESSIONAL AFFILIATIONS
+% ================================================================================================
+\mhead{Professional \newline Affiliations}%
+American Physical Society, Member \rdate{2008–\textsc{present}}\newline
+American Chemical Society, Member \rdate{2006–\textsc{present}}\newline
+Institute of Electrical and Electronics Engineers, Member \rdate{2002–2005, 2015–\textsc{present}}\newline
+
+% ================================================================================================
+% 			PEER-REVIEW EXPERIENCE
+% ================================================================================================
+\mhead{Peer-Review \newline Experience}%
+Physical Review Letters (PRL) \newline
+Physical Review B (PRB) \newline
+Applied Physics Letters (APL) \newline
+Journal of the American Chemical Society (JACS) \newline
+
+% ================================================================================================
+\end{document}
+% ================================================================================================
